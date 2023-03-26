@@ -1,5 +1,6 @@
 import "./globals.css";
 import Providers from "@/components/Providers";
+import Navbar from "@/components/Navbar";
 
 export const metadata = {
   title: "News For Mood",
@@ -13,8 +14,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-slate-100 text-slate-900">
-        <Providers>{children}</Providers>
+      <body className="bg-slate-100 min-h-screen text-slate-900">
+        <Providers>
+          {/* @ts-expect-error Server Component */}
+          <Navbar />
+          <div className="h-16" />
+          {children}
+        </Providers>
       </body>
     </html>
   );
